@@ -6,15 +6,17 @@ public final class CommandLine {
     private final Set<String> cities;
     private final Set<String> attractions;
     private final String EXIT_MESSAGE = "EXIT";
-    private final String ENOUGH_MESSAGE = "ENOUGH";
+    private Scanner scanner;
 
-    public CommandLine(Set<String> cities, Set<String> attractions) {
-        this.cities = cities;
+    public CommandLine(Set<String> attractions, Set<String> cities) {
         this.attractions = attractions;
+        this.cities = cities;
     }
 
+
     public Inputs readInputs() {
-        Scanner scanner = new Scanner(System.in);
+        printHeader();
+        scanner = new Scanner(System.in);
 
         String start = null;
         while (start == null) {
@@ -43,6 +45,7 @@ public final class CommandLine {
         List<String> attractions = new ArrayList<>();
         while (true) {
             String attraction = readString(scanner, "List an attraction along the way (or ENOUGH to stop listing)");
+            String ENOUGH_MESSAGE = "ENOUGH";
             if (attraction.equalsIgnoreCase(ENOUGH_MESSAGE)) {
                 break;
             }
@@ -53,12 +56,19 @@ public final class CommandLine {
             }
         }
 
-        scanner.close();
         return new Inputs(start, end, attractions);
     }
 
     private String readString(Scanner scanner, String prompt) {
         System.out.print(prompt + ": ");
         return scanner.nextLine();
+    }
+
+    private void printHeader() {
+        System.out.println("=================================");
+        System.out.println("Plan a new trip");
+    }
+    public void close() {
+        scanner.close();
     }
 }

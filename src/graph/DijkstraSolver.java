@@ -2,22 +2,22 @@ package graph;
 
 import java.util.*;
 
-public class Solver<V> {
+public class DijkstraSolver<V> {
     private final HashMap<V,DijkstraRow<V>> table;
     private final Graph<V,Edge<V>> graph;
     private final V source;
     private final V target;
 
-    public Solver(Graph<V,Edge<V>> graph, V source, V target) {
+    public DijkstraSolver(Graph<V,Edge<V>> graph, V source, V target) {
         this.graph = graph;
         this.source = source;
         this.target = target;
         this.table = new HashMap<>();
+        dijkstrasAlgorithm();
     }
 
     public List<V> getShortestPath() {
         List<V> path = new ArrayList<>();
-        dijkstrasAlgorithm();
         V current = target;
         while (current != source) {
             path.add(0, current);
@@ -27,7 +27,7 @@ public class Solver<V> {
         return path;
     }
 
-    public int getDistace() {
+    public int getDistance() {
         return table.get(target).getCost();
     }
 
@@ -88,5 +88,9 @@ public class Solver<V> {
             }
         }
         return lowestVertex;
+    }
+
+    public int getCostFromSource(V vertex) {
+        return table.get(vertex).getCost();
     }
 }
