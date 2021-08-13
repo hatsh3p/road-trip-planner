@@ -10,13 +10,15 @@ public class Main {
         TripPlanner tripPlanner = new TripPlanner("data/attractions.csv", "data/roads.csv");
         CommandLine commandLine = new CommandLine(tripPlanner.getAttractions(), tripPlanner.getCities());
         Inputs inputs;
-        do {
+
+        while (true) {
             inputs = commandLine.readInputs();
-            if (inputs == null)
+            if (inputs == null) {
                 break;
+            }
             List<String> route = tripPlanner.route(inputs.getStartingCity(), inputs.getEndingCity(), inputs.getAttractions());
             tripPlanner.printRoute(route);
-        } while (inputs != null);
+        }
         commandLine.close();
     }
 }

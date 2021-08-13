@@ -5,7 +5,6 @@ import java.util.*;
 public final class CommandLine {
     private final Set<String> cities;
     private final Set<String> attractions;
-    private final String EXIT_MESSAGE = "EXIT";
     private Scanner scanner;
 
     public CommandLine(Set<String> attractions, Set<String> cities) {
@@ -19,6 +18,7 @@ public final class CommandLine {
         scanner = new Scanner(System.in);
 
         String start = null;
+        String EXIT_MESSAGE = "EXIT";
         while (start == null) {
             start = readString(scanner, "Name of starting city (or EXIT to quit)");
             if (start.equalsIgnoreCase(EXIT_MESSAGE)) {
