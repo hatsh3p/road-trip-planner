@@ -35,7 +35,6 @@ public class Main {
             return;
         }
         List<String> totalPath = new ArrayList<>();
-
         List<String> citiesToVisit = new ArrayList<>();
         for (String attraction : inputs.getAttractions()) {
             citiesToVisit.add(attractions.get(attraction));
@@ -49,19 +48,6 @@ public class Main {
             totalPath.addAll(solution);
             source = destination;
         }
-
         System.out.println("Path traveled: " + totalPath);
-
-//        String source = "San Francisco CA";
-//        String target = "Houston TX";
-//        String attraction = "Iowa State Fair";
-//        String attractionCity = attractions.get(attraction);
-//        System.out.println(attractionCity);
-//        Solver<String> solver1 = new Solver<>(graph, source, attractionCity);
-//        Solver<String> solver2 = new Solver<>(graph, attractionCity, target);
-//        List<String> path1 = solver1.getShortestPath();
-//        List<String> path2 = solver2.getShortestPath();
-//        System.out.println("Path traveled= " + path1 + path2);
-//        System.out.println("Distance traveled= " + (solver1.getDistance() + solver2.getDistance()) + " miles");
     }
 }

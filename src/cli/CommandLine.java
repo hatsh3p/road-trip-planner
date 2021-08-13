@@ -5,6 +5,8 @@ import java.util.*;
 public final class CommandLine {
     private final Set<String> cities;
     private final Set<String> attractions;
+    private final String EXIT_MESSAGE = "EXIT";
+    private final String ENOUGH_MESSAGE = "ENOUGH";
 
     public CommandLine(Set<String> cities, Set<String> attractions) {
         this.cities = cities;
@@ -12,12 +14,12 @@ public final class CommandLine {
     }
 
     public Inputs readInputs() {
-        Scanner in = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
         String start = null;
         while (start == null) {
-            start = readString(in, "Name of starting city (or EXIT to quit)");
-            if (start.equals("EXIT")) {
+            start = readString(scanner, "Name of starting city (or EXIT to quit)");
+            if (start.equalsIgnoreCase(EXIT_MESSAGE)) {
                 return null;
             }
             if (!cities.contains(start)) {
@@ -28,8 +30,8 @@ public final class CommandLine {
 
         String end = null;
         while (end == null) {
-            end = readString(in, "Name of ending city (or EXIT to quit)");
-            if (end.equals("EXIT")) {
+            end = readString(scanner, "Name of ending city (or EXIT to quit)");
+            if (end.equalsIgnoreCase(EXIT_MESSAGE)) {
                 return null;
             }
             if (!cities.contains(end)) {
@@ -40,8 +42,8 @@ public final class CommandLine {
 
         List<String> attractions = new ArrayList<>();
         while (true) {
-            String attraction = readString(in, "List an attraction along the way (or ENOUGH to stop listing)");
-            if (attraction.equals("ENOUGH")) {
+            String attraction = readString(scanner, "List an attraction along the way (or ENOUGH to stop listing)");
+            if (attraction.equalsIgnoreCase(ENOUGH_MESSAGE)) {
                 break;
             }
             if (this.attractions.contains(attraction)) {
@@ -51,7 +53,7 @@ public final class CommandLine {
             }
         }
 
-        in.close();
+        scanner.close();
         return new Inputs(start, end, attractions);
     }
 

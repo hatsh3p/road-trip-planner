@@ -10,7 +10,6 @@ import java.util.HashMap;
 public class DataReader {
     public HashMap<String, String> readAttractions(String filename) {
         HashMap<String, String> attractions = new HashMap<>();
-
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -25,7 +24,6 @@ public class DataReader {
 
     public HashMap <String, Edge<String>> readRoads(String filename) {
         HashMap<String, Edge<String>> roads = new HashMap<>();
-
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
             String line;
             while ((line = br.readLine()) != null) {

@@ -3,9 +3,9 @@ package graph;
 import java.util.Objects;
 
 public class Edge<T> {
-    private T vertex1;
-    private T vertex2;
-    private int weight;
+    private final T vertex1;
+    private final T vertex2;
+    private final int weight;
 
     public Edge(T vertex1, T vertex2, int weight) {
         this.vertex1 = vertex1;
@@ -23,18 +23,6 @@ public class Edge<T> {
 
     public int getWeight() {
         return weight;
-    }
-
-    public void setVertex1(T vertex1) {
-        this.vertex1 = vertex1;
-    }
-
-    public void setVertex2(T vertex2) {
-        this.vertex2 = vertex2;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
     }
 
     @Override
