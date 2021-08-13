@@ -27,7 +27,7 @@ public class Solver<V> {
         return path;
     }
 
-    public int getDistance() {
+    public int getDistace() {
         return table.get(target).getCost();
     }
 
