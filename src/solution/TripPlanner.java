@@ -23,7 +23,6 @@ public class TripPlanner {
         this.attractions = attractionToCity.keySet();
         this.cities = new HashSet<>();
         this.graph = new Graph<>();
-        // this.distance = 0;
         fillGraph();
     }
 

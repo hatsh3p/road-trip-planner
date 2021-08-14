@@ -3,7 +3,7 @@ package graph;
 import java.util.*;
 
 public class DijkstraSolver<V> {
-    private final HashMap<V,DijkstraRow<V>> table;
+    private final Map<V,DijkstraRow<V>> table;
     private final Graph<V,Edge<V>> graph;
     private final V source;
     private final V target;
