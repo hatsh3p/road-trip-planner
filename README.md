@@ -1,5 +1,11 @@
 #Road Trip Planner
 
+## Problem
+Find the shortest path given a starting city, ending city, and a list of attractions
+
+## Design Doc (postmortem)
+https://docs.google.com/document/d/1gr9q0P_DtmPgl-iQuNt3yfUrdtElNZqYQVVzw1qa7v0/edit
+
 ## Overall Implementation
 * [ ] Use a CSV parser that reads road.csv as Road objects and store in a HashMap
 * [ ] Use a CSV parser that reads attractions.csv and store in a HashMap
